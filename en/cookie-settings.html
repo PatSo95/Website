@@ -1,5 +1,51 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><script>if(location.hostname==='patso95.github.io'&&!document.querySelector('base')){const b=document.createElement('base');b.href='/Website/';document.head.prepend(b);}</script><title>Cookie settings | Danbees Studybees (EN)</title><meta name="description" content="Manage cookie categories." /><link rel="canonical" href="https://danbeesstudybees.org/en/cookie-settings.html" /><link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/cookie-settings.html" /><link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/cookie-settings.html" /><link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/en/cookie-settings.html" /><link rel="stylesheet" href="../assets/styles.css" /><script src="../assets/site.js" defer></script></head><body>
-<header class="site-header"><div class="container header-row"><a class="brand" href="index.html">Danbees Studybees</a><div class="nav-shell"><button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false">Menu</button><nav class="nav-links" data-nav-links><a href="programs.html">Programs</a><a href="contact.html">Contact</a><a href="cookie-settings.html">Cookie</a></nav><span class="lang-switch"><a href="cookie-settings.html" aria-current="page" data-lang-switch="en">EN</a><a href="/ko/cookie-settings.html" data-lang-switch="ko">KO</a></span></div></div></header>
-<main class="section container"><h1>Cookie settings</h1><section class="card"><div class="card-body"><form data-cookie-settings-form data-saved-message="Your cookie settings were saved."><p><label><input type="checkbox" checked disabled /> Necessary (always on)</label></p><p><label><input type="checkbox" name="preferences" /> Preferences</label></p><p><label><input type="checkbox" name="analytics" /> Analytics</label></p><p><label><input type="checkbox" name="marketing" /> Marketing</label></p><p><button type="submit">Save settings</button></p></form><p data-settings-status class="lead" aria-live="polite"></p></div></section></main>
-<footer class="footer"><div class="container footer-bottom"><span>© Danbees Studybees</span><div class="legal"><a href="legal.html#privacy">Privacy</a><a href="cookie-settings.html">Cookie settings</a></div></div></footer>
-</body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <script>if(location.hostname==="patso95.github.io"){document.querySelector("base")?.setAttribute("href","/Website/");}</script>
+    <title>Cookie settings | Danbees Studybees (EN)</title>
+    <meta name="description" content="Manage cookie categories at any time." />
+    <link rel="canonical" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/cookie-settings.html" />
+    <link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <meta property="og:title" content="Cookie settings | Danbees Studybees" />
+    <meta property="og:description" content="Control cookie categories and consent choices." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <a href="en/">Danbees Studybees</a>
+        <nav class="switcher" aria-label="Language switcher">
+          <a href="en/cookie-settings.html" aria-current="page">EN</a>
+          <a href="ko/cookie-settings.html">KO</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="card">
+        <h1>Cookie settings</h1>
+        <p>Necessary cookies are always active. You can update preferences any time.</p>
+        <form data-cookie-settings-form data-saved-message="Your cookie settings were saved.">
+          <fieldset>
+            <legend>Cookie categories</legend>
+            <label><input type="checkbox" checked disabled /> Necessary (always on)</label>
+            <label><input type="checkbox" name="preferences" /> Preferences</label>
+            <label><input type="checkbox" name="analytics" /> Analytics</label>
+            <label><input type="checkbox" name="marketing" /> Marketing</label>
+          </fieldset>
+          <p><button type="submit">Save settings</button></p>
+        </form>
+        <p data-settings-status aria-live="polite"></p>
+      </section>
+    </main>
+  </body>
+</html>
