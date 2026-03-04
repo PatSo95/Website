@@ -1,21 +1,19 @@
-# Stock Image Register
+# STOCK_IMAGES
 
-This repository currently contains no image assets used by the site.
+Source for all assets: **Pexels**.
 
-## Approved Image Records
+## Image registry
 
-No images are currently in use, so there are no stock image records to list yet.
+| Key | Pexels page URL | Usage | Alt EN | Alt KO |
+|---|---|---|---|---|
+| heroMain | https://www.pexels.com/photo/bright-lights-over-river-and-city-buildings-at-night-3142002/ | EN/KO home hero, story card | Seoul skyline at night | 서울 야경 스카이라인 |
+| garakMeetup | https://www.pexels.com/photo/man-taking-photo-of-buildings-near-road-31826555/ | EN/KO programs (1:1 meetup), home how-it-works, support visuals | Seoul street scene for in-person meetup context | 오프라인 밋업 맥락의 서울 거리 장면 |
+| onlineOneToOne | https://www.pexels.com/photo/woman-in-red-long-sleeve-shirt-sitting-on-chair-5905709/ | EN/KO programs (online 1:1), home stories, advantages/support cards | Online one-to-one learning session | 온라인 1:1 학습 장면 |
 
-## Policy for Future Image Additions
+## Variant policy
 
-All images added to this project must:
-
-1. Be stored under `assets/images/`.
-2. Come from a source with a verifiable royalty-free license (for example, Unsplash, Pexels, Pixabay, or equivalent providers with clear licensing terms).
-3. Be recorded in this file with:
-   - Local file path
-   - Source URL
-   - License type
-   - Attribution requirements (if any)
-   - Date accessed
-4. Be rejected if they lack a verifiable royalty-free license record.
+All pictures use responsive variants with webp first and jpg fallback:
+- `?auto=compress&cs=tinysrgb&fit=crop&w=480&fm=webp|jpg`
+- `?auto=compress&cs=tinysrgb&fit=crop&w=768&fm=webp|jpg`
+- `?auto=compress&cs=tinysrgb&fit=crop&w=1200&fm=webp|jpg`
+- `?auto=compress&cs=tinysrgb&fit=crop&w=1600&fm=webp|jpg`
