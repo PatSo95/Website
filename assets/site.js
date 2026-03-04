@@ -6,70 +6,20 @@
   const defaults = { necessary: true, preferences: false, analytics: false, marketing: false };
 
   const IMG = {
-    campusGangnam: {
-      base: "https://images.pexels.com/photos/18935926/pexels-photo-18935926.jpeg",
-      alt_en: "Gangnam district in Seoul",
-      alt_ko: "서울 강남 거리 풍경",
-    },
-    campusHongdae: {
-      base: "https://images.pexels.com/photos/2128042/pexels-photo-2128042.jpeg",
-      alt_en: "Hongdae neon street at night",
-      alt_ko: "홍대 네온 거리 야경",
-    },
-    campusBusan: {
-      base: "https://images.pexels.com/photos/36046040/pexels-photo-36046040.jpeg",
-      alt_en: "Aerial night skyline of Busan",
-      alt_ko: "부산 야경 항공 전경",
-    },
-    programIntensive: {
-      base: "https://images.pexels.com/photos/8199143/pexels-photo-8199143.jpeg",
-      alt_en: "Students studying in a classroom",
-      alt_ko: "교실에서 학습하는 수강생",
-    },
-    programStandard: {
-      base: "https://images.pexels.com/photos/8197511/pexels-photo-8197511.jpeg",
-      alt_en: "Learners in a structured class",
-      alt_ko: "구조화된 수업을 듣는 학습자",
-    },
-    programOnline: {
-      base: "https://images.pexels.com/photos/4260481/pexels-photo-4260481.jpeg",
-      alt_en: "Online one-to-one learning",
-      alt_ko: "온라인 1:1 학습 장면",
-    },
-    programConversation: {
-      base: "https://images.pexels.com/photos/6829486/pexels-photo-6829486.jpeg",
-      alt_en: "Conversation practice in a cafe",
-      alt_ko: "카페에서 진행하는 회화 연습",
-    },
-    programBusiness: {
-      base: "https://images.pexels.com/photos/18999265/pexels-photo-18999265.jpeg",
-      alt_en: "Business meeting with laptops",
-      alt_ko: "노트북을 활용한 비즈니스 미팅",
-    },
-    programExam: {
-      base: "https://images.pexels.com/photos/6958541/pexels-photo-6958541.jpeg",
-      alt_en: "Exam preparation with textbooks",
-      alt_ko: "교재로 시험 준비를 하는 학습 장면",
-    },
-    storyOne: {
-      base: "https://images.pexels.com/photos/31367494/pexels-photo-31367494.jpeg",
-      alt_en: "Student holding books outdoors",
-      alt_ko: "책을 들고 있는 학생",
-    },
-    storyTwo: {
-      base: "https://images.pexels.com/photos/17070296/pexels-photo-17070296.jpeg",
-      alt_en: "Student using a laptop in a cafe",
-      alt_ko: "카페에서 노트북을 사용하는 학습자",
-    },
-    storyThree: {
-      base: "https://images.pexels.com/photos/30424729/pexels-photo-30424729.jpeg",
-      alt_en: "Smiling learner in class",
-      alt_ko: "교실에서 미소 짓는 학습자",
-    },
     heroMain: {
       base: "https://images.pexels.com/photos/3142002/pexels-photo-3142002.jpeg",
       alt_en: "Seoul skyline at night",
       alt_ko: "서울 도심 야경",
+    },
+    meetupOne: {
+      base: "https://images.pexels.com/photos/31826555/pexels-photo-31826555.jpeg",
+      alt_en: "Garak Market meetup area in Seoul",
+      alt_ko: "서울 가락시장 미팅 장소 주변",
+    },
+    onlineOne: {
+      base: "https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg",
+      alt_en: "One-to-one online language session",
+      alt_ko: "온라인 1:1 수업 장면",
     },
   };
 
@@ -107,7 +57,9 @@
       const parsed = JSON.parse(localStorage.getItem(KEY) || "null");
       if (!parsed) return null;
       return { ...defaults, ...parsed, necessary: true };
-    } catch { return null; }
+    } catch {
+      return null;
+    }
   }
 
   function loadAnalytics() {
@@ -119,6 +71,12 @@
     document.head.appendChild(script);
   }
   function applyConsent(consent) { if (consent.analytics) loadAnalytics(); }
+
+  function saveConsent(consent) {
+    const next = { ...defaults, ...consent, necessary: true };
+    localStorage.setItem(KEY, JSON.stringify(next));
+    if (next.analytics) loadAnalytics();
+  }
 
   function saveConsent(consent) {
     const next = { ...defaults, ...consent, necessary: true };
