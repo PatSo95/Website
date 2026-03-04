@@ -12,7 +12,6 @@
       return { ...defaults, ...parsed, necessary: true };
     } catch { return null; }
   }
-
   function saveConsent(consent) {
     const next = { ...defaults, ...consent, necessary: true };
     localStorage.setItem(KEY, JSON.stringify(next));
@@ -26,6 +25,12 @@
     script.defer = true;
     script.dataset.analytics = "danbees";
     document.head.appendChild(script);
+  }
+  function applyConsent(consent) { if (consent.analytics) loadAnalytics(); }
+
+  function applyConsent(consent) {
+    if (consent.analytics) loadAnalytics();
+    document.dispatchEvent(new CustomEvent("consent-updated", { detail: consent }));
   }
 
   function initConsentBanner() {
