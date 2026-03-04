@@ -1,4 +1,7 @@
 (function () {
+  if (window.__danbeesInit) return;
+  window.__danbeesInit = true;
+
   const KEY = "danbees-cookie-consent-v1";
   const defaults = { necessary: true, preferences: false, analytics: false, marketing: false };
 
@@ -7,11 +10,8 @@
       const parsed = JSON.parse(localStorage.getItem(KEY) || "null");
       if (!parsed) return null;
       return { ...defaults, ...parsed, necessary: true };
-    } catch {
-      return null;
-    }
+    } catch { return null; }
   }
-
   function saveConsent(consent) {
     const next = { ...defaults, ...consent, necessary: true };
     localStorage.setItem(KEY, JSON.stringify(next));
@@ -26,6 +26,7 @@
     script.dataset.analytics = "danbees";
     document.head.appendChild(script);
   }
+  function applyConsent(consent) { if (consent.analytics) loadAnalytics(); }
 
   function applyConsent(consent) {
     if (consent.analytics) loadAnalytics();
