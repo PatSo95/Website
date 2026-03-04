@@ -1,0 +1,14 @@
+{
+  "/": {
+    "en": "/en/",
+    "ko": "/ko/"
+  },
+  "/about": {
+    "en": "/en/about/",
+    "ko": "/ko/about/"
+  },
+  "/services": {
+    "en": "/en/services/",
+    "ko": "/ko/services/"
+  }
+}
