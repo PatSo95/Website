@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.example.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.example.com/en/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.example.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.example.com/en/" />
+    <loc>https://danbeesstudybees.org/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/" />
   </url>
   <url>
-    <loc>https://www.example.com/ko/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.example.com/en/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.example.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.example.com/en/" />
+    <loc>https://danbeesstudybees.org/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/" />
+  </url>
+  <url>
+    <loc>https://danbeesstudybees.org/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/" />
+  </url>
+  <url>
+    <loc>https://danbeesstudybees.org/en/cookie-settings.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/cookie-settings.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+  </url>
+  <url>
+    <loc>https://danbeesstudybees.org/ko/cookie-settings.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/cookie-settings.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/ko/cookie-settings.html" />
   </url>
 </urlset>

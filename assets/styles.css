@@ -1,0 +1,79 @@
+:root {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #1e293b;
+}
+body {
+  margin: 0;
+  background: #f8fafc;
+}
+main {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+.card {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.button,
+button {
+  display: inline-block;
+  border: 1px solid #1d4ed8;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.button.secondary,
+button.secondary {
+  background: #fff;
+  color: #1d4ed8;
+}
+header {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+}
+header .wrap {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0.85rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.switcher {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+.cookie-banner {
+  position: fixed;
+  inset: auto 0 0;
+  background: #0f172a;
+  color: #fff;
+  padding: 1rem;
+  z-index: 20;
+}
+.cookie-banner .inner {
+  max-width: 840px;
+  margin: 0 auto;
+}
+.cookie-banner.hidden {
+  display: none;
+}
+fieldset {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 1rem;
+}
+label {
+  display: block;
+  margin: 0.4rem 0;
+}
