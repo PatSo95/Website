@@ -70,6 +70,7 @@
     script.dataset.analytics = "danbees";
     document.head.appendChild(script);
   }
+  function applyConsent(consent) { if (consent.analytics) loadAnalytics(); }
 
   function saveConsent(consent) {
     const next = { ...defaults, ...consent, necessary: true };
@@ -82,14 +83,12 @@
     window.__dbsbConsentInit = true;
     const banner = document.querySelector("[data-cookie-banner]");
     if (!banner) return;
-
     const consent = readConsent();
     if (consent) {
       banner.classList.add("hidden");
       if (consent.analytics) loadAnalytics();
       return;
     }
-
     banner.classList.remove("hidden");
     banner.querySelector("[data-accept-all]")?.addEventListener("click", () => {
       saveConsent({ necessary: true, preferences: true, analytics: true, marketing: true });
