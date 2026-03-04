@@ -1,6 +1,6 @@
 (function () {
-  if (window.__danbeesInit) return;
-  window.__danbeesInit = true;
+  if (window.__dbsbInit) return;
+  window.__dbsbInit = true;
 
   const KEY = "danbees-cookie-consent-v1";
   const defaults = { necessary: true, preferences: false, analytics: false, marketing: false };
@@ -15,13 +15,13 @@
   function saveConsent(consent) {
     const next = { ...defaults, ...consent, necessary: true };
     localStorage.setItem(KEY, JSON.stringify(next));
-    applyConsent(next);
+    if (next.analytics) loadAnalytics();
   }
 
   function loadAnalytics() {
     if (document.querySelector('script[data-analytics="danbees"]')) return;
     const script = document.createElement("script");
-    script.src = "assets/analytics-loader.js";
+    script.src = location.hostname === "patso95.github.io" ? "/Website/assets/analytics-loader.js" : "/assets/analytics-loader.js";
     script.defer = true;
     script.dataset.analytics = "danbees";
     document.head.appendChild(script);
@@ -33,13 +33,15 @@
     document.dispatchEvent(new CustomEvent("consent-updated", { detail: consent }));
   }
 
-  function connectBanner() {
+  function initConsentBanner() {
+    if (window.__dbsbConsentInit) return;
+    window.__dbsbConsentInit = true;
     const banner = document.querySelector("[data-cookie-banner]");
     if (!banner) return;
     const consent = readConsent();
     if (consent) {
       banner.classList.add("hidden");
-      applyConsent(consent);
+      if (consent.analytics) loadAnalytics();
       return;
     }
     banner.classList.remove("hidden");
@@ -53,17 +55,16 @@
     });
   }
 
-  function connectSettingsForm() {
+  function initSettingsForm() {
     const form = document.querySelector("[data-cookie-settings-form]");
     if (!form) return;
     const current = readConsent() || defaults;
     ["preferences", "analytics", "marketing"].forEach((key) => {
       const input = form.querySelector(`[name="${key}"]`);
-      if (input) input.checked = Boolean(current[key]);
+      if (input) input.checked = !!current[key];
     });
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
       saveConsent({
         preferences: !!form.querySelector('[name="preferences"]')?.checked,
         analytics: !!form.querySelector('[name="analytics"]')?.checked,
@@ -74,47 +75,74 @@
     });
   }
 
-  function connectMobileMenu() {
+  function initMenu() {
     const toggle = document.querySelector("[data-menu-toggle]");
-    const nav = document.querySelector("[data-site-nav]");
-    if (!toggle || !nav) return;
+    const panel = document.querySelector("[data-nav-links]");
+    if (!toggle || !panel) return;
+    let lastFocus = null;
+    const open = () => {
+      lastFocus = document.activeElement;
+      panel.classList.add("open");
+      toggle.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+      panel.querySelector("a")?.focus();
+    };
+    const close = () => {
+      panel.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      lastFocus?.focus?.();
+    };
+    toggle.addEventListener("click", () => (panel.classList.contains("open") ? close() : open()));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+    panel.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
+  }
 
-    toggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
+  function initLanguageSwitch() {
+    const path = location.pathname;
+    const match = path.match(/\/(en|ko)\/(.*)$/);
+    if (!match) return;
+    const [, lang, restRaw] = match;
+    const rest = restRaw || "";
+    const other = lang === "en" ? "ko" : "en";
+    document.querySelectorAll("[data-lang-switch]").forEach((a) => {
+      const target = a.getAttribute("data-lang-switch");
+      if (target !== other) return;
+      a.setAttribute("href", `/${other}/${rest}`);
     });
   }
 
-  function connectSlider() {
-    const root = document.querySelector("[data-slider]");
-    const track = document.querySelector("[data-slider-track]");
-    if (!root || !track) return;
-
-    const slides = Array.from(track.children);
-    if (!slides.length) return;
-
-    let index = 0;
-    const prev = root.querySelector("[data-slider-prev]");
-    const next = root.querySelector("[data-slider-next]");
-
-    function render() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    prev?.addEventListener("click", () => {
-      index = (index - 1 + slides.length) % slides.length;
-      render();
-    });
-
-    next?.addEventListener("click", () => {
-      index = (index + 1) % slides.length;
-      render();
+  function initSlider() {
+    document.querySelectorAll("[data-slider]").forEach((slider) => {
+      const track = slider.querySelector("[data-slider-track]");
+      if (!track) return;
+      const slides = Array.from(track.children);
+      if (!slides.length) return;
+      let idx = 0;
+      const render = () => (track.style.transform = `translateX(-${idx * 100}%)`);
+      slider.querySelector("[data-slider-prev]")?.addEventListener("click", () => { idx = (idx - 1 + slides.length) % slides.length; render(); });
+      slider.querySelector("[data-slider-next]")?.addEventListener("click", () => { idx = (idx + 1) % slides.length; render(); });
     });
   }
 
-  window.DanbeesConsent = { readConsent, saveConsent };
-  connectBanner();
-  connectSettingsForm();
-  connectMobileMenu();
-  connectSlider();
+  function initReveal() {
+    const items = document.querySelectorAll(".reveal");
+    if (!items.length || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach((el) => io.observe(el));
+  }
+
+  initConsentBanner();
+  initSettingsForm();
+  initMenu();
+  initLanguageSwitch();
+  initSlider();
+  initReveal();
 })();
