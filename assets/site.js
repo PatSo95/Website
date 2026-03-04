@@ -65,18 +65,12 @@
   function loadAnalytics() {
     if (document.querySelector('script[data-analytics="danbees"]')) return;
     const script = document.createElement("script");
-    script.src = location.hostname === "patso95.github.io" ? "/Website/assets/analytics-loader.js" : "/assets/analytics-loader.js";
+    script.src = location.pathname.includes("/en/") || location.pathname.includes("/ko/") ? "../assets/analytics-loader.js" : "assets/analytics-loader.js";
     script.defer = true;
     script.dataset.analytics = "danbees";
     document.head.appendChild(script);
   }
   function applyConsent(consent) { if (consent.analytics) loadAnalytics(); }
-
-  function saveConsent(consent) {
-    const next = { ...defaults, ...consent, necessary: true };
-    localStorage.setItem(KEY, JSON.stringify(next));
-    if (next.analytics) loadAnalytics();
-  }
 
   function saveConsent(consent) {
     const next = { ...defaults, ...consent, necessary: true };
