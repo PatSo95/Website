@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookie settings | Danbees Studybees (EN)</title>
+    <meta name="description" content="Manage cookie categories at any time." />
+    <link rel="canonical" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/cookie-settings.html" />
+    <link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <meta property="og:title" content="Cookie settings | Danbees Studybees" />
+    <meta property="og:description" content="Control cookie categories and consent choices." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://danbeesstudybees.org/en/cookie-settings.html" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/site.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <a href="/en/">Danbees Studybees</a>
+        <nav class="switcher" aria-label="Language switcher">
+          <a href="/en/cookie-settings.html" aria-current="page">EN</a>
+          <a href="/ko/cookie-settings.html">KO</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="card">
+        <h1>Cookie settings</h1>
+        <p>Necessary cookies are always active. You can update preferences any time.</p>
+        <form data-cookie-settings-form data-saved-message="Your cookie settings were saved.">
+          <fieldset>
+            <legend>Cookie categories</legend>
+            <label><input type="checkbox" checked disabled /> Necessary (always on)</label>
+            <label><input type="checkbox" name="preferences" /> Preferences</label>
+            <label><input type="checkbox" name="analytics" /> Analytics</label>
+            <label><input type="checkbox" name="marketing" /> Marketing</label>
+          </fieldset>
+          <p><button type="submit">Save settings</button></p>
+        </form>
+        <p data-settings-status aria-live="polite"></p>
+      </section>
+    </main>
+  </body>
+</html>

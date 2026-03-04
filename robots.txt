@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://danbeesstudybees.org/sitemap.xml
