@@ -21,29 +21,119 @@
     <script src="assets/site.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="wrap">
-        <strong>Danbees Studybees</strong>
-        <nav class="switcher" aria-label="Language switcher">
-          <span>Language:</span>
-          <a href="en/" aria-current="page">EN</a>
-          <a href="ko/">KO</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="en/">Danbees Studybees</a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false">Menu</button>
+        <nav class="site-nav" data-site-nav>
+          <a href="#programs">Programs</a>
+          <a href="#advantages">Advantages</a>
+          <a href="#support">Support</a>
+          <span class="lang-switch" aria-label="Language switcher">
+            <a href="en/" aria-current="page">EN</a>
+            <a href="ko/">KO</a>
+          </span>
         </nav>
       </div>
     </header>
+
     <main>
-      <section class="card">
-        <h1>Welcome</h1>
-        <p>This is the English home page.</p>
-        <p><a href="en/cookie-settings.html">Cookie settings</a></p>
+      <section class="hero">
+        <div class="container hero-content">
+          <h1>Focused language learning with calm structure and real support.</h1>
+          <p>Build consistent habits through small-group classes, practical coaching, and flexible online and campus options.</p>
+          <p>
+            <a class="button primary" href="#programs">Explore Programs</a>
+            <a class="button secondary" href="#support">Talk to an Advisor</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="container stats" aria-label="Trust highlights">
+        <div class="stats-grid">
+          <article class="stat"><strong>Small groups</strong><span class="muted">Guided learning in focused class sizes.</span></article>
+          <article class="stat"><strong>Start any Monday</strong><span class="muted">New learners can begin each week.</span></article>
+          <article class="stat"><strong>Online + offline</strong><span class="muted">Choose the mode that fits your routine.</span></article>
+          <article class="stat"><strong>Support assistance</strong><span class="muted">Academic and daily-life help when needed.</span></article>
+        </div>
+      </section>
+
+      <section id="programs" class="section container">
+        <div class="section-header">
+          <h2>Programs</h2>
+          <p class="muted">Practical courses designed for steady progress.</p>
+        </div>
+        <div class="program-grid">
+          <article class="card">
+            <img src="https://images.pexels.com/photos/8199143/pexels-photo-8199143.jpeg?cs=srgb&dl=pexels-yankrukov-8199143.jpg&fm=jpg" alt="Students in a collaborative class" />
+            <div class="card-body"><h3>Core Korean Course</h3><p>Balanced speaking, listening, reading, and writing from beginner to upper-intermediate.</p></div>
+          </article>
+          <article class="card">
+            <img src="https://images.pexels.com/photos/16160869/pexels-photo-16160869.jpeg?cs=srgb&dl=pexels-pessoas-uem-503045317-16160869.jpg&fm=jpg" alt="Teacher guiding a student" />
+            <div class="card-body"><h3>Teacher Coaching</h3><p>Weekly coaching sessions for pronunciation, confidence, and study planning.</p></div>
+          </article>
+          <article class="card">
+            <img src="https://images.pexels.com/photos/4260481/pexels-photo-4260481.jpeg?cs=srgb&dl=pexels-august-de-richelieu-4260481.jpg&fm=jpg" alt="Student learning online" />
+            <div class="card-body"><h3>Hybrid Study Track</h3><p>Mix live online classes with in-person sessions according to your schedule.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section photo-band">
+        <div class="container">
+          <h2>Designed for consistent progress</h2>
+          <p>Each week combines clear goals, feedback, and practical activities so your learning remains steady and meaningful.</p>
+        </div>
+      </section>
+
+      <section class="section container" aria-label="Testimonials">
+        <div class="section-header"><h2>Learner voices</h2></div>
+        <div class="testimonial-wrap" data-slider>
+          <button class="slider-btn" type="button" data-slider-prev aria-label="Previous testimonial">‹</button>
+          <div class="testimonial-viewport">
+            <div class="testimonial-track" data-slider-track>
+              <article class="testimonial"><p>“The classes are calm and structured. I can apply what I learn right away at work.”</p><p class="author">— Hana, Working Professional</p></article>
+              <article class="testimonial"><p>“I appreciated the weekly coaching. It helped me speak more naturally and confidently.”</p><p class="author">— David, Exchange Student</p></article>
+              <article class="testimonial"><p>“The support team explained practical steps clearly, from class selection to settling in.”</p><p class="author">— Mina, New Resident</p></article>
+            </div>
+          </div>
+          <button class="slider-btn" type="button" data-slider-next aria-label="Next testimonial">›</button>
+        </div>
+      </section>
+
+      <section id="advantages" class="section container">
+        <div class="section-header"><h2>Why learners choose us</h2></div>
+        <div class="feature-grid">
+          <article class="card"><div class="card-body"><h3>Clear pathways</h3><p>Course levels and outcomes are transparent from the start.</p></div></article>
+          <article class="card"><div class="card-body"><h3>Mentor feedback</h3><p>Regular check-ins keep your goals realistic and measurable.</p></div></article>
+          <article class="card"><div class="card-body"><h3>Flexible pacing</h3><p>Choose short intensive terms or longer steady tracks.</p></div></article>
+          <article class="card"><div class="card-body"><h3>Community focused</h3><p>Small classes encourage active participation and connection.</p></div></article>
+        </div>
+      </section>
+
+      <section id="support" class="section container">
+        <div class="support-band">
+          <div>
+            <h2>Support center</h2>
+            <p>Need help selecting a course or planning your weekly routine? Our team can guide your next step.</p>
+          </div>
+          <p><a class="button secondary" href="en/cookie-settings.html">Cookie settings</a></p>
+        </div>
       </section>
     </main>
 
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <section><h4>Danbees Studybees</h4><p class="muted">Premium Korean language learning designed for clarity and sustainable progress.</p></section>
+        <section><h4>Programs</h4><ul><li>Core Korean</li><li>Hybrid Track</li><li>Teacher Coaching</li></ul></section>
+        <section><h4>Support</h4><ul><li><a href="#support">Advising</a></li><li><a href="en/cookie-settings.html">Cookie settings</a></li></ul></section>
+        <section><h4>Language</h4><ul><li><a href="en/">English</a></li><li><a href="ko/">한국어</a></li></ul></section>
+      </div>
+    </footer>
+
     <section class="cookie-banner hidden" data-cookie-banner>
       <div class="inner">
-        <p>
-          We use cookies: necessary (always on), preferences, analytics, and marketing.
-        </p>
+        <p>We use cookies: necessary (always on), preferences, analytics, and marketing.</p>
         <p>
           <button type="button" data-accept-all>Accept all</button>
           <button type="button" class="secondary" data-accept-necessary>Necessary only</button>
