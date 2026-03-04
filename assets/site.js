@@ -33,7 +33,7 @@
   function loadAnalytics() {
     if (document.querySelector('script[data-analytics="danbees"]')) return;
     const script = document.createElement("script");
-    script.src = "/assets/analytics-loader.js";
+    script.src = "assets/analytics-loader.js";
     script.defer = true;
     script.dataset.analytics = "danbees";
     document.head.appendChild(script);
