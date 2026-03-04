@@ -75,46 +75,40 @@
 
   function connectMobileMenu() {
     const toggle = document.querySelector("[data-menu-toggle]");
-    const links = document.querySelector("[data-nav-links]");
-    if (!toggle || !links) return;
+    const nav = document.querySelector("[data-site-nav]");
+    if (!toggle || !nav) return;
+
     toggle.addEventListener("click", () => {
-      const next = !links.classList.contains("open");
-      links.classList.toggle("open", next);
-      toggle.setAttribute("aria-expanded", String(next));
+      const isOpen = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
     });
   }
 
   function connectSlider() {
-    document.querySelectorAll("[data-slider]").forEach((slider) => {
-      const track = slider.querySelector("[data-slider-track]");
-      if (!track) return;
-      const slides = Array.from(track.children);
-      if (!slides.length) return;
-      let index = 0;
-      const render = () => { track.style.transform = `translateX(-${index * 100}%)`; };
-      slider.querySelector("[data-slider-prev]")?.addEventListener("click", () => {
-        index = (index - 1 + slides.length) % slides.length;
-        render();
-      });
-      slider.querySelector("[data-slider-next]")?.addEventListener("click", () => {
-        index = (index + 1) % slides.length;
-        render();
-      });
-    });
-  }
+    const root = document.querySelector("[data-slider]");
+    const track = document.querySelector("[data-slider-track]");
+    if (!root || !track) return;
 
-  function connectReveal() {
-    const items = document.querySelectorAll(".reveal");
-    if (!items.length || !("IntersectionObserver" in window)) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    items.forEach((el) => io.observe(el));
+    const slides = Array.from(track.children);
+    if (!slides.length) return;
+
+    let index = 0;
+    const prev = root.querySelector("[data-slider-prev]");
+    const next = root.querySelector("[data-slider-next]");
+
+    function render() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prev?.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      render();
+    });
+
+    next?.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      render();
+    });
   }
 
   window.DanbeesConsent = { readConsent, saveConsent };
@@ -122,5 +116,4 @@
   connectSettingsForm();
   connectMobileMenu();
   connectSlider();
-  connectReveal();
 })();
