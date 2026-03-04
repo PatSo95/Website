@@ -33,7 +33,7 @@
   function loadAnalytics() {
     if (document.querySelector('script[data-analytics="danbees"]')) return;
     const script = document.createElement("script");
-    script.src = "/assets/analytics-loader.js";
+    script.src = "assets/analytics-loader.js";
     script.defer = true;
     script.dataset.analytics = "danbees";
     document.head.appendChild(script);
@@ -84,7 +84,47 @@
     });
   }
 
+  function connectMobileMenu() {
+    const toggle = document.querySelector("[data-menu-toggle]");
+    const nav = document.querySelector("[data-site-nav]");
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
+  function connectSlider() {
+    const root = document.querySelector("[data-slider]");
+    const track = document.querySelector("[data-slider-track]");
+    if (!root || !track) return;
+
+    const slides = Array.from(track.children);
+    if (!slides.length) return;
+
+    let index = 0;
+    const prev = root.querySelector("[data-slider-prev]");
+    const next = root.querySelector("[data-slider-next]");
+
+    function render() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prev?.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      render();
+    });
+
+    next?.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      render();
+    });
+  }
+
   window.DanbeesConsent = { readConsent, saveConsent };
   connectBanner();
   connectSettingsForm();
+  connectMobileMenu();
+  connectSlider();
 })();
