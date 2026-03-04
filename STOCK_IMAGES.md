@@ -1,22 +1,23 @@
 # STOCK_IMAGES
 
-Source for all assets: **Pexels** (royalty-free, attribution not required by Pexels license; confirm policy before commercial final release).
+Source for all assets: **Pexels** (royalty-free stock photo platform).
 
 ## Image registry
 
-| Key | Pexels page URL | Usage | Alt EN | Alt KO |
+| Key | Base URL | Usage | Alt EN | Alt KO |
 |---|---|---|---|---|
-| heroSeoul | https://www.pexels.com/photo/city-buildings-near-body-of-water-1119723/ | EN/KO home hero | Seoul skyline with river at dusk | 강변이 보이는 서울 스카이라인 |
-| meetupGarak | https://www.pexels.com/photo/man-taking-photo-of-buildings-near-road-31826555/ | EN/KO program card (in-person meetup), support/advantages visuals | Garak Market meetup area in Seoul | 서울 가락시장 인근 밋업 장소 |
-| onlineOneToOne | https://www.pexels.com/photo/woman-in-red-long-sleeve-shirt-sitting-on-chair-5905709/ | EN/KO program card (online 1:1) | One-to-one online learning session | 온라인 1:1 학습 장면 |
-| storyOne | https://www.pexels.com/photo/college-student-holding-books-outdoors-on-campus-31367494/ | EN/KO stories card 1 | Student holding books outdoors | 책을 들고 있는 학습자 |
-| storyTwo | https://www.pexels.com/photo/young-man-sitting-in-a-restaurant-and-using-a-laptop-17070296/ | EN/KO stories card 2 | Learner using a laptop in a cafe | 카페에서 노트북으로 공부하는 학습자 |
-| storyThree | https://www.pexels.com/photo/young-woman-smiling-in-classroom-setting-30424729/ | EN/KO stories card 3 | Smiling learner in class | 교실에서 미소 짓는 학습자 |
+| hero-seoul-skyline | https://images.pexels.com/photos/1119723/pexels-photo-1119723.jpeg | EN/KO one-on-one social proof card, optional skyline visual | Seoul skyline by the river | 한강과 서울 스카이라인 |
+| garak-hero | https://images.pexels.com/photos/31826555/pexels-photo-31826555.jpeg | EN/KO one-on-one hero, meetup context cards | Garak Market neighborhood street in Seoul | 서울 가락시장 인근 거리 |
+| seoul-market-street | https://images.pexels.com/photos/31720216/pexels-photo-31720216.jpeg | EN/KO one-on-one in-person format block | Seoul market street scene near meetup area | 서울 시장 골목 풍경 |
+| online-one-to-one | https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg | EN/KO one-on-one online format block and cards | Online one-to-one tutoring session | 온라인 1:1 수업 장면 |
+| teacher-detail | https://images.pexels.com/photos/5905562/pexels-photo-5905562.jpeg | EN/KO one-on-one social proof card | Teacher writing notes | 교사가 노트를 작성하는 장면 |
 
 ## Variant policy
 
-All responsive images use `<picture>` with WebP first and JPG fallback, using these query parameters:
+All responsive images use `<picture>` with WebP first and JPG fallback:
 - `?auto=compress&cs=tinysrgb&fit=crop&w=480&fm=webp|jpg`
 - `?auto=compress&cs=tinysrgb&fit=crop&w=768&fm=webp|jpg`
 - `?auto=compress&cs=tinysrgb&fit=crop&w=1200&fm=webp|jpg`
 - `?auto=compress&cs=tinysrgb&fit=crop&w=1600&fm=webp|jpg`
+
+Hero images use `loading="eager"` + `fetchpriority="high"`; below-the-fold images use `loading="lazy" decoding="async"`.
