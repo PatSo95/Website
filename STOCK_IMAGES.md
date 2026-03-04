@@ -1,21 +1,19 @@
-# Stock Image Register
+# STOCK IMAGES
 
-This repository currently contains no image assets used by the site.
+Source for all listed images: **Pexels**.
 
-## Approved Image Records
+| Base URL | Source | Usage | Alt (EN) | Alt (KO) |
+|---|---|---|---|---|
+| https://images.pexels.com/photos/3142002/pexels-photo-3142002.jpeg | Pexels | EN/KO home hero | Seoul skyline at night | 서울 도심 야경 |
+| https://images.pexels.com/photos/1119723/pexels-photo-1119723.jpeg | Pexels | Root language chooser background | River skyline reflection | 강변 스카이라인 반영 |
+| https://images.pexels.com/photos/8199143/pexels-photo-8199143.jpeg | Pexels | EN/KO programs cards and previews | Students in classroom collaboration | 교실에서 협업 학습 중인 수강생 |
+| https://images.pexels.com/photos/2246803/pexels-photo-2246803.jpeg | Pexels | EN/KO support CTA backgrounds | Seoul bridge at night | 서울 다리 야경 |
+| https://images.pexels.com/photos/4260481/pexels-photo-4260481.jpeg | Pexels | EN/KO online learning cards | Learner in online lesson | 온라인 수업 참여 학습자 |
 
-No images are currently in use, so there are no stock image records to list yet.
+## Responsive variants used
 
-## Policy for Future Image Additions
-
-All images added to this project must:
-
-1. Be stored under `assets/images/`.
-2. Come from a source with a verifiable royalty-free license (for example, Unsplash, Pexels, Pixabay, or equivalent providers with clear licensing terms).
-3. Be recorded in this file with:
-   - Local file path
-   - Source URL
-   - License type
-   - Attribution requirements (if any)
-   - Date accessed
-4. Be rejected if they lack a verifiable royalty-free license record.
+Each image is requested with optimized params:
+- `?auto=compress&cs=tinysrgb&w=480&fm=webp|jpg`
+- `?auto=compress&cs=tinysrgb&w=768&fm=webp|jpg`
+- `?auto=compress&cs=tinysrgb&w=1200&fm=webp|jpg`
+- `?auto=compress&cs=tinysrgb&w=1600&fm=webp|jpg`
