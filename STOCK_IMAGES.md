@@ -1,4 +1,4 @@
-# Stock Image Register
+# STOCK IMAGES
 
 All stock images used in this repository are sourced from **Pexels** and used for website UI sections.
 

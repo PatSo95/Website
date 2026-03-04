@@ -1,11 +1,6 @@
 (function () {
   const KEY = "danbees-cookie-consent-v1";
-  const defaults = {
-    necessary: true,
-    preferences: false,
-    analytics: false,
-    marketing: false,
-  };
+  const defaults = { necessary: true, preferences: false, analytics: false, marketing: false };
 
   function readConsent() {
     try {
@@ -23,13 +18,6 @@
     applyConsent(next);
   }
 
-  function applyConsent(consent) {
-    if (consent.analytics) {
-      loadAnalytics();
-    }
-    document.dispatchEvent(new CustomEvent("consent-updated", { detail: consent }));
-  }
-
   function loadAnalytics() {
     if (document.querySelector('script[data-analytics="danbees"]')) return;
     const script = document.createElement("script");
@@ -39,23 +27,25 @@
     document.head.appendChild(script);
   }
 
+  function applyConsent(consent) {
+    if (consent.analytics) loadAnalytics();
+    document.dispatchEvent(new CustomEvent("consent-updated", { detail: consent }));
+  }
+
   function connectBanner() {
     const banner = document.querySelector("[data-cookie-banner]");
     if (!banner) return;
-
     const consent = readConsent();
     if (consent) {
       banner.classList.add("hidden");
       applyConsent(consent);
       return;
     }
-
     banner.classList.remove("hidden");
     banner.querySelector("[data-accept-all]")?.addEventListener("click", () => {
       saveConsent({ necessary: true, preferences: true, analytics: true, marketing: true });
       banner.classList.add("hidden");
     });
-
     banner.querySelector("[data-accept-necessary]")?.addEventListener("click", () => {
       saveConsent(defaults);
       banner.classList.add("hidden");
@@ -65,12 +55,11 @@
   function connectSettingsForm() {
     const form = document.querySelector("[data-cookie-settings-form]");
     if (!form) return;
-
     const current = readConsent() || defaults;
-    for (const key of ["preferences", "analytics", "marketing"]) {
+    ["preferences", "analytics", "marketing"].forEach((key) => {
       const input = form.querySelector(`[name="${key}"]`);
-      if (input) input.checked = !!current[key];
-    }
+      if (input) input.checked = Boolean(current[key]);
+    });
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
