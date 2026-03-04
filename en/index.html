@@ -3,51 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <script>if(location.hostname==="patso95.github.io"){document.querySelector("base")?.setAttribute("href","/Website/");}</script>
     <title>Danbees Studybees | Home (EN)</title>
-    <meta name="description" content="English home page for Danbees Studybees." />
+    <meta name="description" content="Premium language school experience in Korea with flexible study options and personal support." />
     <link rel="canonical" href="https://danbeesstudybees.org/en/" />
     <link rel="alternate" hreflang="en" href="https://danbeesstudybees.org/en/" />
     <link rel="alternate" hreflang="ko" href="https://danbeesstudybees.org/ko/" />
     <link rel="alternate" hreflang="x-default" href="https://danbeesstudybees.org/" />
-    <meta property="og:title" content="Danbees Studybees | Home" />
-    <meta property="og:description" content="Learn and grow with Danbees Studybees." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://danbeesstudybees.org/en/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="ko_KR" />
-    <link rel="stylesheet" href="/assets/styles.css" />
-    <script src="/assets/site.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/site.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="wrap">
-        <strong>Danbees Studybees</strong>
-        <nav class="switcher" aria-label="Language switcher">
-          <span>Language:</span>
-          <a href="/en/" aria-current="page">EN</a>
-          <a href="/ko/">KO</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="en/">Danbees Studybees</a>
+        <nav class="site-nav" aria-label="Primary">
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="main-nav">Menu</button>
+          <div class="links" id="main-nav" data-nav-links>
+            <a href="en/programs.html">Programs</a><a href="#advantages">Advantages</a><a href="#support">Support</a><a href="#stories">Stories</a><a href="en/contact.html">Contact</a>
+          </div>
+          <span class="lang-switch" aria-label="Language switcher"><a href="en/" aria-current="page">EN</a><a href="ko/">KO</a></span>
+          <a class="btn primary" href="en/contact.html">Book a Trial</a>
         </nav>
       </div>
     </header>
+
     <main>
-      <section class="card">
-        <h1>Welcome</h1>
-        <p>This is the English home page.</p>
-        <p><a href="/en/cookie-settings.html">Cookie settings</a></p>
+      <section class="hero">
+        <div class="container hero-content reveal">
+          <h1>Premium language learning, designed for real life in Korea.</h1>
+          <p class="lead">Clear pathways, small classes, and practical support for learners who want quality, consistency, and flexibility.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="en/programs.html">Explore Programs</a>
+            <a class="btn secondary" href="en/contact.html">Contact / Book Trial</a>
+          </div>
+        </div>
       </section>
+
+      <section class="container">
+        <div class="trust-grid reveal">
+          <article class="trust-item"><strong>Small groups</strong><span class="muted">Focused classes with room for individual feedback.</span></article>
+          <article class="trust-item"><strong>Start any Monday</strong><span class="muted">Flexible weekly entry to match your schedule.</span></article>
+          <article class="trust-item"><strong>Online + in-person</strong><span class="muted">Choose the format that fits your routine.</span></article>
+          <article class="trust-item"><strong>Student support</strong><span class="muted">Academic and daily-life guidance when needed.</span></article>
+        </div>
+      </section>
+
+      <section id="programs" class="section container reveal">
+        <h2>Programs</h2>
+        <p class="muted">A balanced portfolio for structured progress.</p>
+        <div class="grid-3">
+          <article class="card"><img class="card-media" src="https://images.pexels.com/photos/8199143/pexels-photo-8199143.jpeg?auto=compress&cs=tinysrgb&w=768&fm=jpg" srcset="https://images.pexels.com/photos/8199143/pexels-photo-8199143.jpeg?auto=compress&cs=tinysrgb&w=480&fm=jpg 480w, https://images.pexels.com/photos/8199143/pexels-photo-8199143.jpeg?auto=compress&cs=tinysrgb&w=768&fm=jpg 768w, https://images.pexels.com/photos/8199143/pexels-photo-8199143.jpeg?auto=compress&cs=tinysrgb&w=1200&fm=jpg 1200w" sizes="(max-width:760px) 100vw, (max-width:1040px) 50vw, 33vw" width="768" height="480" loading="lazy" decoding="async" alt="Learners studying together in class" /><div class="card-body"><h3>Korean Intensive</h3><p>Fast-paced weekdays for learners who want high immersion.</p></div></article>
+          <article class="card"><img class="card-media" src="https://images.pexels.com/photos/5905562/pexels-photo-5905562.jpeg?auto=compress&cs=tinysrgb&w=768&fm=jpg" srcset="https://images.pexels.com/photos/5905562/pexels-photo-5905562.jpeg?auto=compress&cs=tinysrgb&w=480&fm=jpg 480w, https://images.pexels.com/photos/5905562/pexels-photo-5905562.jpeg?auto=compress&cs=tinysrgb&w=768&fm=jpg 768w, https://images.pexels.com/photos/5905562/pexels-photo-5905562.jpeg?auto=compress&cs=tinysrgb&w=1200&fm=jpg 1200w" sizes="(max-width:760px) 100vw, (max-width:1040px) 50vw, 33vw" width="768" height="480" loading="lazy" decoding="async" alt="Teacher at whiteboard" /><div class="card-body"><h3>Korean Standard</h3><p>Steady weekday structure balancing class and personal study.</p></div></article>
+          <article class="card"><img class="card-media" src="https://images.pexels.com/photos/4260481/pexels-photo-4260481.jpeg?auto=compress&cs=tinysrgb&w=768&fm=jpg" srcset="https://images.pexels.com/photos/4260481/pexels-photo-4260481.jpeg?auto=compress&cs=tinysrgb&w=480&fm=jpg 480w, https://images.pexels.com/photos/4260481/pexels-photo-4260481.jpeg?auto=compress&cs=tinysrgb&w=768&fm=jpg 768w, https://images.pexels.com/photos/4260481/pexels-photo-4260481.jpeg?auto=compress&cs=tinysrgb&w=1200&fm=jpg 1200w" sizes="(max-width:760px) 100vw, (max-width:1040px) 50vw, 33vw" width="768" height="480" loading="lazy" decoding="async" alt="Learner joining online class" /><div class="card-body"><h3>Online 1:1</h3><p>Private coaching sessions tailored to your goals.</p></div></article>
+          <article class="card"><div class="card-body"><h3>English Conversation</h3><p>Interactive speaking sessions for practical communication.</p></div></article>
+          <article class="card"><div class="card-body"><h3>Business Korean</h3><p>Professional language for workplace communication.</p></div></article>
+        </div>
+      </section>
+
+      <section id="support" class="section container reveal"><div class="band"><div><h2>Support Center</h2><p>From level planning to settling into daily study life, our advisors help you move with confidence.</p></div><a class="btn secondary" href="en/contact.html">Speak with Support</a></div></section>
+
+      <section id="advantages" class="section container reveal"><h2>Advantages & Activities</h2><div class="grid-6"><article class="card"><div class="card-body"><h3>City tour</h3><p>Explore Seoul districts with guided language tasks.</p></div></article><article class="card"><div class="card-body"><h3>Language exchange</h3><p>Weekly conversation practice with local partners.</p></div></article><article class="card"><div class="card-body"><h3>K-culture workshops</h3><p>Hands-on sessions covering food, media, and etiquette.</p></div></article><article class="card"><div class="card-body"><h3>Study support</h3><p>Progress checks and planning with academic advisors.</p></div></article><article class="card"><div class="card-body"><h3>Community events</h3><p>Low-pressure meetups to build confidence.</p></div></article><article class="card"><div class="card-body"><h3>Flexible schedules</h3><p>Morning, afternoon, and hybrid options.</p></div></article></div></section>
+
+      <section id="stories" class="section container reveal"><h2>Stories from learners</h2><div class="testimonial-slider" data-slider><button class="slider-btn" data-slider-prev aria-label="Previous story">‹</button><div class="slider-viewport"><div class="slider-track" data-slider-track><article class="testimonial"><p>“The school helped me build a consistent routine while working part-time.”</p><p class="muted">Student from Australia</p></article><article class="testimonial"><p>“I liked the structure: clear goals, feedback, and practical assignments.”</p><p class="muted">Student from Germany</p></article><article class="testimonial"><p>“Support staff made class planning and daily questions easy to handle.”</p><p class="muted">Student from Brazil</p></article></div></div><button class="slider-btn" data-slider-next aria-label="Next story">›</button></div></section>
     </main>
 
-    <section class="cookie-banner hidden" data-cookie-banner>
-      <div class="inner">
-        <p>
-          We use cookies: necessary (always on), preferences, analytics, and marketing.
-        </p>
-        <p>
-          <button type="button" data-accept-all>Accept all</button>
-          <button type="button" class="secondary" data-accept-necessary>Necessary only</button>
-          <a class="button secondary" href="/en/cookie-settings.html">Customize settings</a>
-        </p>
+    <footer class="footer">
+      <div class="container footer-main">
+        <section><h4>Programs</h4><ul><li><a href="en/programs.html">All programs</a></li><li>Korean Intensive</li><li>Korean Standard</li><li>Online 1:1</li></ul></section>
+        <section><h4>Support</h4><ul><li><a href="en/contact.html">Contact</a></li><li><a href="#support">Support center</a></li><li><a href="en/cookie-settings.html">Cookie settings</a></li></ul></section>
+        <section><h4>Company</h4><ul><li>About Danbees</li><li>Admissions help</li><li>Seoul campus life</li><li>Social: Instagram · YouTube</li></ul></section>
+        <section><h4>Legal</h4><ul><li><a href="en/legal.html#privacy">Privacy</a></li><li><a href="en/legal.html#cookies">Cookies</a></li><li><a href="en/legal.html#terms">Terms</a></li><li><a href="en/legal.html#refund">Refund</a></li><li><a href="en/legal.html#disclaimer">Disclaimer</a></li><li><a href="en/legal.html#accessibility">Accessibility</a></li><li><a href="en/legal.html#security">Security</a></li></ul></section>
       </div>
-    </section>
+      <div class="container footer-bottom"><span>© Danbees Studybees</span><div class="legal"><a href="en/legal.html#privacy">Privacy</a><a href="en/cookie-settings.html">Cookie Settings</a><a href="en/legal.html#terms">Terms</a></div></div>
+    </footer>
+
+    <section class="cookie-banner hidden" data-cookie-banner><div class="inner"><p>We use cookies: necessary (always on), preferences, analytics, and marketing.</p><p><button type="button" data-accept-all>Accept all</button> <button type="button" class="secondary" data-accept-necessary>Necessary only</button> <a class="button secondary" href="en/cookie-settings.html">Customize settings</a></p></div></section>
   </body>
 </html>
