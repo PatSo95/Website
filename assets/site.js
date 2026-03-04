@@ -28,11 +28,6 @@
   }
   function applyConsent(consent) { if (consent.analytics) loadAnalytics(); }
 
-  function applyConsent(consent) {
-    if (consent.analytics) loadAnalytics();
-    document.dispatchEvent(new CustomEvent("consent-updated", { detail: consent }));
-  }
-
   function initConsentBanner() {
     if (window.__dbsbConsentInit) return;
     window.__dbsbConsentInit = true;
@@ -73,6 +68,15 @@
       const status = document.querySelector("[data-settings-status]");
       if (status) status.textContent = form.dataset.savedMessage || "Saved.";
     });
+  }
+
+
+  function initHeaderShadow() {
+    const h = document.querySelector('.site-header');
+    if (!h) return;
+    const update = () => h.classList.toggle('scrolled', window.scrollY > 8);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
   }
 
   function initMenu() {
@@ -145,4 +149,5 @@
   initLanguageSwitch();
   initSlider();
   initReveal();
+  initHeaderShadow();
 })();
