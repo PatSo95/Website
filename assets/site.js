@@ -12,7 +12,6 @@
       return { ...defaults, ...parsed, necessary: true };
     } catch { return null; }
   }
-
   function saveConsent(consent) {
     const next = { ...defaults, ...consent, necessary: true };
     localStorage.setItem(KEY, JSON.stringify(next));
@@ -27,6 +26,7 @@
     script.dataset.analytics = "danbees";
     document.head.appendChild(script);
   }
+  function applyConsent(consent) { if (consent.analytics) loadAnalytics(); }
 
   function initConsentBanner() {
     if (window.__dbsbConsentInit) return;
